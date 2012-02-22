@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<data>
+	<config>
+		<title>ayme32.fr</title>
+		<sidebar>&amp;lt;li&amp;gt;&amp;lt;a href=&amp;quot;index.php?article=1&amp;quot;&amp;gt;Your first article !&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt;</sidebar>
+		<theme>twitter_bootstrap</theme>
+		<tent>5</tent>
+		<install>1</install>
+	<error404>&amp;lt;h1&amp;gt;Oh oh !&amp;lt;/h1&amp;gt;&#xD;
+&amp;lt;br /&amp;gt;&amp;lt;p&amp;gt;We havn't found the file that you were looking for.&amp;lt;/p&amp;gt;</error404><error403>&amp;lt;h1&amp;gt;Oh oh !&amp;lt;/h1&amp;gt;&#xD;
+&amp;lt;br /&amp;gt;&amp;lt;p&amp;gt;You may not stay here. Private access, and stuff like that ...&amp;lt;/p&amp;gt;</error403></config>
+	<page>
+		<key>1</key>
+		<content>&amp;lt;p&amp;gt;This is the main page of your website ! Go to &amp;lt;strong&amp;gt;/admin&amp;lt;/strong&amp;gt; to edit it !&amp;lt;/p&amp;gt;</content>
+	</page>
+	<article>
+		<key>1</key>
+		<title>Your first article !</title>
+		<content>&amp;lt;p&amp;gt;Welcome to your new Yjing environnement ! You can go to &amp;lt;strong&amp;gt;/admin&amp;lt;/strong&amp;gt; to edit article and pages !&amp;lt;/p&amp;gt;</content>
+		<pubdate>A day.</pubdate>
+		<author>The Yjing team</author>
+	</article>
+	
+</data>
