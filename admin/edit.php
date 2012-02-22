@@ -144,7 +144,7 @@
 		elseif ($action == "list_page") {
 			$xml = new simpleXMLElement(file_get_contents("../" . $datafile_url));
 
-			$page = "<h1>Choose an page to edit.</h1><table class=\"table\"><thead><tr><th>#</th><th>Content</th></tr></thead><tbody>";
+			$page = "<h1>" . $choose_an_page_to_edit[$lang] . ".</h1><table class=\"table\"><thead><tr><th>#</th><th>" . $content[$lang] . "</th></tr></thead><tbody>";
 
 			foreach ($xml->page as $output) {
 				$page .= "<tr>";
@@ -157,10 +157,10 @@
 		}
 		elseif ($action == "edit_page" AND !empty($_GET['page']) AND preg_match("#^[0-9]+$#", $_GET["page"])) {
 			$page_get = getPage($_GET['page'],"../".$datafile_url);
-			$page = "<h1>Edit an page</h1><br /><form class=\"form-horizontal\" action=\"edit.php?action=edit_page_processing\" method=\"POST\"><fieldset>";
+			$page = "<h1>" . $edit_an_page[$lang] . "</h1><br /><form class=\"form-horizontal\" action=\"edit.php?action=edit_page_processing\" method=\"POST\"><fieldset>";
 			$page .= "<input type=\"hidden\" name=\"id\" value=\"" . $_GET['page'] . "\">";
-			$page .= "<div class=\"control-group\"><label class=\"control-label\">Content : </label><div class=\"controls\"><textarea name=\"content\" class=\"span6\" rows=\"15\">" . stripslashes(html_entity_decode($page_get[0])) . "</textarea></div></div>";
-			$page .= "<div class=\"control-group\"><div class=\"controls\"><button type=\"submit\" class=\"btn btn-success\">Save changes</button></div></div>";
+			$page .= "<div class=\"control-group\"><label class=\"control-label\">" . $content[$lang] . " : </label><div class=\"controls\"><textarea name=\"content\" class=\"span6\" rows=\"15\">" . stripslashes(html_entity_decode($page_get[0])) . "</textarea></div></div>";
+			$page .= "<div class=\"control-group\"><div class=\"controls\"><button type=\"submit\" class=\"btn btn-success\">" . $save_changes[$lang] . "</button></div></div>";
 			$page .= "</fieldset></form>";
 		}
 		elseif ($action == "edit_page_processing" AND isset($_POST['id']) AND isset($_POST['content'])) {
@@ -177,14 +177,14 @@
 			$file = fopen("../" . $datafile_url,"w");
 			fputs($file,$buffer);
 			fclose($file);
-			$page = "<p>Your changes has been done !</p>";
-			$page .= "<p>Your article is available at : <strong><i>index.php?page=" . $_POST['id'] . "</i></strong>.</p>";
-			$page .= "<p><a href=\"index.php\" class=\"btn btn-warning\">Return to index</a></p>";
+			$page = "<p>" . $your_changes_has_been_done[$lang] . " !</p>";
+			$page .= "<p>" . $your_article_is_available_at[$lang] . " : <strong><i>index.php?page=" . $_POST['id'] . "</i></strong>.</p>";
+			$page .= "<p><a href=\"index.php\" class=\"btn btn-warning\">" . $return_to_index[$lang] . "</a></p>";
 		}
 		elseif ($action == "delete_page") {
 			$xml = new simpleXMLElement(file_get_contents("../" . $datafile_url));
 
-			$page = "<h1>Choose an page to delete it.</h1><table class=\"table\"><thead><tr><th class=\"span1\"></th><th>#</th><th>Content</th></tr></thead><tbody>";
+			$page = "<h1>" . $choose_an_page_to_delete_it[$lang] . ".</h1><table class=\"table\"><thead><tr><th class=\"span1\"></th><th>#</th><th>" . $content[$lang] . "</th></tr></thead><tbody>";
 
 			foreach ($xml->page as $output) {
 				$page .= "<tr>";
@@ -198,13 +198,13 @@
 		}
 		elseif ($action == "delete_page_confirmation" AND !empty($_GET['page'])) {
 			if ($_GET['page'] == 1) {
-				$page = "<p>You can't delete the first page : it's your homepage !</p>";
-				$page .= "<p><a href=\"index.php\" class=\"btn btn-warning\">Return to index</a></p>";
+				$page = "<p>" . $you_cant_delete_the_first_page[$lang] . " !</p>";
+				$page .= "<p><a href=\"index.php\" class=\"btn btn-warning\">" . $return_to_index[$lang] . "</a></p>";
 			}
 			else {
-				$page = "<h1>Are you sure that you want to delete it ?</h1><br />";
-				$page .= "<a class=\"btn btn-danger\" href=\"edit.php?action=delete_page_processing&page=" . $_GET['page'] . "\">Continue</a>&nbsp;";
-				$page .= "<a class=\"btn btn-success\" href=\"index.php\">Cancel</a>";
+				$page = "<h1>" . $are_you_sure_that_you_want_to_delete_it[$lang] . " ?</h1><br />";
+				$page .= "<a class=\"btn btn-danger\" href=\"edit.php?action=delete_page_processing&page=" . $_GET['page'] . "\">" . $continue[$lang] . "</a>&nbsp;";
+				$page .= "<a class=\"btn btn-success\" href=\"index.php\">" . $cancel[$lang] . "</a>";
 			}
 		}
 		elseif ($action == "delete_page_processing" AND !empty($_GET['page'])) {
@@ -225,12 +225,12 @@
 			fputs($file,$buffer);
 			fclose($file);
 
-			$page = "<p>Page deleted.</p><p><a href=\"index.php\" class=\"btn btn-warning\">Return to index</a></p>";
+			$page = "<p>" . $page_deleted[$lang] . ".</p><p><a href=\"index.php\" class=\"btn btn-warning\">" . $return_to_index[$lang] . "</a></p>";
 		}
 		elseif ($action == "add_page") {
-			$page = "<h1>Add a page</h1><br /><form class=\"form-horizontal\" action=\"edit.php?action=add_page_processing\" method=\"POST\"><fieldset>";
-			$page .= "<div class=\"control-group\"><label class=\"control-label\">Content : </label><div class=\"controls\"><textarea name=\"content\" class=\"span6\" rows=\"15\" placeholder=\"Type something here.\"></textarea></div></div>";
-			$page .= "<div class=\"control-group\"><div class=\"controls\"><button type=\"submit\" class=\"btn btn-success\">Save</button></div></div>";
+			$page = "<h1>" . $add_a_page[$lang] . "</h1><br /><form class=\"form-horizontal\" action=\"edit.php?action=add_page_processing\" method=\"POST\"><fieldset>";
+			$page .= "<div class=\"control-group\"><label class=\"control-label\">" . $content[$lang] . " : </label><div class=\"controls\"><textarea name=\"content\" class=\"span6\" rows=\"15\" placeholder=\"" . $type_something_here[$lang] . ".\"></textarea></div></div>";
+			$page .= "<div class=\"control-group\"><div class=\"controls\"><button type=\"submit\" class=\"btn btn-success\">" . $save[$lang] . "</button></div></div>";
 			$page .= "</fieldset></form>";
 		}
 
@@ -254,12 +254,12 @@
 				$file = fopen("../" . $datafile_url,"w");
 				fputs($file,$buffer);
 				fclose($file);
-				$page = "<p>The page has been published.</p>";
-				$page .= "<p>Your page is available at : <strong><i>index.php?page=" . $id . "</i></strong>.</p>";
-				$page .= "<p><a href=\"index.php\" class=\"btn btn-warning\">Return to index</a></p>";
+				$page = "<p>" . $the_page_has_been_published[$lang] . ".</p>";
+				$page .= "<p>" . $your_page_is_available_at[$lang] . " : <strong><i>index.php?page=" . $id . "</i></strong>.</p>";
+				$page .= "<p><a href=\"index.php\" class=\"btn btn-warning\">" . $return_to_index[$lang] . "</a></p>";
 			}
 			else {
-				$page = "<p>You havn't filled some fields.</p><p><a href=\"index.php\" class=\"btn btn-warning\">Return to index</a></p>";
+				$page = "<p>" . $you_havnt_filled_some_fields[$lang] . ".</p><p><a href=\"index.php\" class=\"btn btn-warning\">" . $return_to_index[$lang] . "</a></p>";
 			}
 		}
 		else {
