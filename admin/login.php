@@ -94,7 +94,7 @@
 						echo "Your face is bear.";
 					}
 					else {
-						echo $login[$lang];
+						echo $login_lang[$lang];
 					}
 				?>
 			</p>

@@ -88,7 +88,7 @@ $return_to_the_media_manager = array(0 => "Return to the media manager", 1 => "R
 $delete_it = array(0 => "Delete it", 1 => "Supprimer");
 
 // login.php
-$login = array(0 => "Login", 1 => "Connexion");
+$login_lang = array(0 => "Login", 1 => "Connexion");
 $username = array(0 => "Username", 1 => "Nom de compte");
 $password = array(0 => "Password", 1 => "Mot de passe");
 $log_in = array(0 => "Log in", 1 => "Se connecter");
