@@ -6,6 +6,7 @@
 		<theme>twitter_bootstrap</theme>
 		<tent>5</tent>
 		<install>1</install>
+		<lang>1</lang>
 	<error404>&amp;lt;h1&amp;gt;Oh oh !&amp;lt;/h1&amp;gt;&#xD;
 &amp;lt;br /&amp;gt;&amp;lt;p&amp;gt;We havn't found the file that you were looking for.&amp;lt;/p&amp;gt;</error404><error403>&amp;lt;h1&amp;gt;Oh oh !&amp;lt;/h1&amp;gt;&#xD;
 &amp;lt;br /&amp;gt;&amp;lt;p&amp;gt;You may not stay here. Private access, and stuff like that ...&amp;lt;/p&amp;gt;</error403></config>

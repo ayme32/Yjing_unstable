@@ -34,7 +34,7 @@ function getSiteInfos($database) {
 
 	$xml = new simpleXMLElement(file_get_contents($database));
 
-	return array(0 => $xml->config->title[0], 1 => $xml->config->sidebar[0], 2 => $xml->config->theme[0], 3 => $xml->config->error404[0], 4 => $xml->config->error403[0], 5 => $xml->config->tent[0], 6 => $xml->config->install[0]);
+	return array(0 => $xml->config->title[0], 1 => $xml->config->sidebar[0], 2 => $xml->config->theme[0], 3 => $xml->config->error404[0], 4 => $xml->config->error403[0], 5 => $xml->config->tent[0], 6 => $xml->config->install[0], 7 => $xml->config->lang[0]);
 }
 
 function openFile($url) {

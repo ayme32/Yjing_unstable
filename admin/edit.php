@@ -11,7 +11,7 @@
 		if ($action == "list_article") {
 			$xml = new simpleXMLElement(file_get_contents("../" . $datafile_url));
 
-			$page = "<h1>Choose an article to edit.</h1><table class=\"table\"><thead><tr><th>#</th><th>Title</th><th>Pubdate</th><th>Author</th></tr></thead><tbody>";
+			$page = "<h1>" . $choose_an_article_to_edit[$lang] . ".</h1><table class=\"table\"><thead><tr><th>#</th><th>" . $title[$lang] . "</th><th>" . $pubdate[$lang] . "</th><th>" . $author[$lang] . "</th></tr></thead><tbody>";
 
 			foreach ($xml->article as $output) {
 				$page .= "<tr>";
@@ -26,13 +26,13 @@
 		}
 		elseif ($action == "edit_article" AND !empty($_GET['article']) AND preg_match("#^[0-9]+$#", $_GET["article"])) {
 			$article_get = getArticle($_GET['article'],"../".$datafile_url);
-			$page = "<h1>Edit an article</h1><br /><form class=\"form-horizontal\" action=\"edit.php?action=edit_article_processing\" method=\"POST\"><fieldset>";
+			$page = "<h1>" . $edit_an_article[$lang] . "</h1><br /><form class=\"form-horizontal\" action=\"edit.php?action=edit_article_processing\" method=\"POST\"><fieldset>";
 			$page .= "<input type=\"hidden\" name=\"id\" value=\"" . $_GET['article'] . "\">";
-			$page .= "<div class=\"control-group\"><label class=\"control-label\">Name of the article : </label><div class=\"controls\"><input type=\"text\" class=\"span6\" id=\"title\" value=\"" . html_entity_decode($article_get[0]) . "\" name=\"title\"></div></div>";
-			$page .= "<div class=\"control-group\"><label class=\"control-label\">Author : </label><div class=\"controls\"><input type=\"text\" class=\"span6\" id=\"title\" value=\"" . $article_get[3] . "\" name=\"author\"></div></div>";
-			$page .= "<div class=\"control-group\"><label class=\"control-label\">Pubdate : </label><div class=\"controls\"><input type=\"text\" class=\"span6\" id=\"title\" value=\"" . $article_get[2] . "\" name=\"pubdate\"></div></div>";
-			$page .= "<div class=\"control-group\"><label class=\"control-label\">Content : </label><div class=\"controls\"><textarea name=\"content\" class=\"span6\" rows=\"15\">" . stripslashes(html_entity_decode($article_get[1])) . "</textarea></div></div>";
-			$page .= "<div class=\"control-group\"><div class=\"controls\"><button type=\"submit\" class=\"btn btn-success\">Save changes</button></div></div>";
+			$page .= "<div class=\"control-group\"><label class=\"control-label\">" . $name_of_the_article[$lang] . " : </label><div class=\"controls\"><input type=\"text\" class=\"span6\" id=\"title\" value=\"" . html_entity_decode($article_get[0]) . "\" name=\"title\"></div></div>";
+			$page .= "<div class=\"control-group\"><label class=\"control-label\">" . $author[$lang] . " : </label><div class=\"controls\"><input type=\"text\" class=\"span6\" id=\"title\" value=\"" . $article_get[3] . "\" name=\"author\"></div></div>";
+			$page .= "<div class=\"control-group\"><label class=\"control-label\">" . $pubdate[$lang] . " : </label><div class=\"controls\"><input type=\"text\" class=\"span6\" id=\"title\" value=\"" . $article_get[2] . "\" name=\"pubdate\"></div></div>";
+			$page .= "<div class=\"control-group\"><label class=\"control-label\">" . $content[$lang] . " : </label><div class=\"controls\"><textarea name=\"content\" class=\"span6\" rows=\"15\">" . stripslashes(html_entity_decode($article_get[1])) . "</textarea></div></div>";
+			$page .= "<div class=\"control-group\"><div class=\"controls\"><button type=\"submit\" class=\"btn btn-success\">" . $save_changes[$lang] . "</button></div></div>";
 			$page .= "</fieldset></form>";
 		}
 		elseif ($action == "edit_article_processing" AND isset($_POST['title']) AND isset($_POST['id']) AND isset($_POST['author']) AND isset($_POST['pubdate']) AND isset($_POST['content'])) {
@@ -52,14 +52,14 @@
 			$file = fopen("../" . $datafile_url,"w");
 			fputs($file,$buffer);
 			fclose($file);
-			$page = "<p>Your changes has been done !</p>";
-			$page .= "<p>Your article is available at : <strong><i>index.php?article=" . $_POST['id'] . "</i></strong>.</p>";
-			$page .= "<p><a href=\"index.php\" class=\"btn btn-warning\">Return to index</a></p>";
+			$page = "<p>" . $your_changes_has_been_done[$lang] . " !</p>";
+			$page .= "<p>" . $your_article_is_available_at[$lang] . " : <strong><i>index.php?article=" . $_POST['id'] . "</i></strong>.</p>";
+			$page .= "<p><a href=\"index.php\" class=\"btn btn-warning\">" . $return_to_index[$lang] . "</a></p>";
 		}
 		elseif ($action == "delete_article") {
 			$xml = new simpleXMLElement(file_get_contents("../" . $datafile_url));
 
-			$page = "<h1>Choose an article to delete it.</h1><table class=\"table\"><thead><tr><th class=\"span1\"></th><th>#</th><th>Title</th><th>Pubdate</th><th>Author</th></tr></thead><tbody>";
+			$page = "<h1>" . $choose_an_article_to_delete_it[$lang] . ".</h1><table class=\"table\"><thead><tr><th class=\"span1\"></th><th>#</th><th>" . $title[$lang] . "</th><th>" . $pubdate[$lang] . "</th><th>" . $author[$lang] . "</th></tr></thead><tbody>";
 
 			foreach ($xml->article as $output) {
 				$page .= "<tr>";
@@ -75,9 +75,9 @@
 		}
 		elseif ($action == "delete_article_confirmation" AND !empty($_GET['article'])) {
 
-			$page = "<h1>Are you sure that you want to delete it ?</h1><br />";
-			$page .= "<a class=\"btn btn-danger\" href=\"edit.php?action=delete_article_processing&article=" . $_GET['article'] . "\">Continue</a>&nbsp;";
-			$page .= "<a class=\"btn btn-success\" href=\"index.php\">Cancel</a>";
+			$page = "<h1>" . $are_you_sure_that_you_want_to_delete_it[$lang] . " ?</h1><br />";
+			$page .= "<a class=\"btn btn-danger\" href=\"edit.php?action=delete_article_processing&article=" . $_GET['article'] . "\">" . $continue[$lang] . "</a>&nbsp;";
+			$page .= "<a class=\"btn btn-success\" href=\"index.php\">" . $cancel[$lang] . "</a>";
 		}
 		elseif ($action == "delete_article_processing" AND !empty($_GET['article'])) {
 			$xml = new simpleXMLElement(file_get_contents("../" . $datafile_url));
@@ -97,7 +97,7 @@
 			fputs($file,$buffer);
 			fclose($file);
 
-			$page = "<p>Article deleted.</p><p><a href=\"index.php\" class=\"btn btn-warning\">Return to index</a></p>";
+			$page = "<p>" . $article_deleted[$lang] . ".</p><p><a href=\"index.php\" class=\"btn btn-warning\">" . $return_to_index[$lang] . "</a></p>";
 		}
 		elseif ($action == "add_article") {
 			$page = "<h1>Add an article</h1><br /><form class=\"form-horizontal\" action=\"edit.php?action=add_article_processing\" method=\"POST\"><fieldset>";
