@@ -95,6 +95,6 @@ $log_in = array(0 => "Log in", 1 => "Se connecter");
 $notenough = array(0 => "You didn't have filled enough fields", 1 => "Vous n'avez pas rempli tout les champs");
 $badlogin = array(0 => "Your login is wrong", 1 => "Votre nom de compte/mot de passe est incorrect");
 $error_lang = array(0 => "ERROR", 1 => "ERREUR");
-$attemps = array(0 => "You've tried too much attemps", "Vous avez fait trop de tentatives de connexion");
+$attemps = array(0 => "You've tried too much attemps", 1 => "Vous avez fait trop de tentatives de connexion");
 
 ?>
