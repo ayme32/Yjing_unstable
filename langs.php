@@ -3,7 +3,8 @@ $lang_file = getSiteInfos("../" . $datafile_url);
 $lang = html_entity_decode($lang_file[7]);
 
 // General
-$save_changes = array(0 => "Save changes", 1 => "Sauvegarder");
+$save_changes = array(0 => "Save changes", 1 => "Sauvegarder les changements");
+$save = array(0 => "Save", 1 => "Sauvegarder");
 $your_changes_has_been_done = array(0 => "Your changes has been done", 1 => "Changements effectu&eacute;s avec succ&egrave;s");
 $return_to_index = array(0 => "Return to index", 1 => "Retourner &agrave; l'accueil");
 
@@ -48,5 +49,9 @@ $are_you_sure_that_you_want_to_delete_it = array(0 => "Are you sure that you wan
 $continue = array(0 => "Continue", 1 => "Continuer");
 $cancel = array(0 => "Cancel", 1 => "Quitter");
 $article_deleted = array(0 => "Article deleted", 1 => "Article supprim&eacute;");
+$add_an_article = array(0 => "Add an article", 1 => "Ajouter un article");
+$type_something_here = array(0 => "Type something here", 1 => "Tapez quelque chose ici");
+$the_article_has_been_published = array(0 => "The article has been published", "L'article a &eacute;t&eacute; publier");
+$you_havnt_filled_some_fields = array(0 => "You havn't filled some fields", "Vous n'avez pas rempli certains champs");
 
 ?>

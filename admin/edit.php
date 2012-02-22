@@ -100,12 +100,12 @@
 			$page = "<p>" . $article_deleted[$lang] . ".</p><p><a href=\"index.php\" class=\"btn btn-warning\">" . $return_to_index[$lang] . "</a></p>";
 		}
 		elseif ($action == "add_article") {
-			$page = "<h1>Add an article</h1><br /><form class=\"form-horizontal\" action=\"edit.php?action=add_article_processing\" method=\"POST\"><fieldset>";
-			$page .= "<div class=\"control-group\"><label class=\"control-label\">Name of the article : </label><div class=\"controls\"><input type=\"text\" class=\"span6\" id=\"title\" placeholder=\"Title\" name=\"title\"></div></div>";
-			$page .= "<div class=\"control-group\"><label class=\"control-label\">Author : </label><div class=\"controls\"><input type=\"text\" class=\"span6\" id=\"title\" placeholder=\"Author\" name=\"author\"></div></div>";
-			$page .= "<div class=\"control-group\"><label class=\"control-label\">Pubdate : </label><div class=\"controls\"><input type=\"text\" class=\"span6\" id=\"title\" placeholder=\"Pubdate\" name=\"pubdate\"></div></div>";
-			$page .= "<div class=\"control-group\"><label class=\"control-label\">Content : </label><div class=\"controls\"><textarea name=\"content\" class=\"span6\" rows=\"15\" placeholder=\"Type something here.\"></textarea></div></div>";
-			$page .= "<div class=\"control-group\"><div class=\"controls\"><button type=\"submit\" class=\"btn btn-success\">Save</button></div></div>";
+			$page = "<h1>" . $add_an_article[$lang] . "</h1><br /><form class=\"form-horizontal\" action=\"edit.php?action=add_article_processing\" method=\"POST\"><fieldset>";
+			$page .= "<div class=\"control-group\"><label class=\"control-label\">" . $name_of_the_article[$lang] . " : </label><div class=\"controls\"><input type=\"text\" class=\"span6\" id=\"title\" placeholder=\"" . $name_of_the_article[$lang] . "\" name=\"title\"></div></div>";
+			$page .= "<div class=\"control-group\"><label class=\"control-label\">" . $author[$lang] . " : </label><div class=\"controls\"><input type=\"text\" class=\"span6\" id=\"title\" placeholder=\"" . $author[$lang] . "\" name=\"author\"></div></div>";
+			$page .= "<div class=\"control-group\"><label class=\"control-label\">" . $pubdate[$lang] . " : </label><div class=\"controls\"><input type=\"text\" class=\"span6\" id=\"title\" placeholder=\"" . $pubdate[$lang] . "\" name=\"pubdate\"></div></div>";
+			$page .= "<div class=\"control-group\"><label class=\"control-label\">" . $content[$lang] . " : </label><div class=\"controls\"><textarea name=\"content\" class=\"span6\" rows=\"15\" placeholder=\"" . $type_something_here[$lang] . ".\"></textarea></div></div>";
+			$page .= "<div class=\"control-group\"><div class=\"controls\"><button type=\"submit\" class=\"btn btn-success\">" . $save[$lang] . "</button></div></div>";
 			$page .= "</fieldset></form>";
 		}
 
@@ -132,12 +132,12 @@
 				$file = fopen("../" . $datafile_url,"w");
 				fputs($file,$buffer);
 				fclose($file);
-				$page = "<p>The article has been published.</p>";
-				$page .= "<p>Your article is available at : <strong><i>index.php?article=" . $id . "</i></strong>.</p>";
-				$page .= "<p><a href=\"index.php\" class=\"btn btn-warning\">Return to index</a></p>";
+				$page = "<p>" . $the_article_has_been_published[$lang] . ".</p>";
+				$page .= "<p>" . $your_article_is_available_at[$lang] . " : <strong><i>index.php?article=" . $id . "</i></strong>.</p>";
+				$page .= "<p><a href=\"index.php\" class=\"btn btn-warning\">" . $return_to_index[$lang] . "</a></p>";
 			}
 			else {
-				$page = "<p>You havn't filled some fields.</p><p><a href=\"index.php\" class=\"btn btn-warning\">Return to index</a></p>";
+				$page = "<p>" . $you_havnt_filled_some_fields[$lang] . ".</p><p><a href=\"index.php\" class=\"btn btn-warning\">" . $return_to_index[$lang] . "</a></p>";
 			}
 		}
 		
