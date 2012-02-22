@@ -7,6 +7,7 @@
 	
 	include("../params.php");
 	include("../functions.php");
+	include("../langs.php");
 	
 	if (!empty($_SESSION['connected']) AND isset($_GET['action']) AND $_GET['action'] == "logout") {
 		session_destroy();
@@ -84,33 +85,33 @@
 			<p>
 				<?php
 					if (isset($_GET['error']) AND $_GET["error"] == "notenough") {
-						echo "You didn't have filled enough fields.";
+						echo $notenough[$lang];
 					}
 					elseif (isset($_GET['error']) AND $_GET["error"] == "badlogin") {
-						echo "Your login is wrong.";
+						echo $badlogin[$lang];
 					}
 					elseif (isset($_GET['error']) AND $_GET["error"] == "bear") {
 						echo "Your face is bear.";
 					}
 					else {
-						echo "Login";
+						echo $login[$lang];
 					}
 				?>
 			</p>
 			</div>
 			<form action="login.php" method="POST">
 				<div id="form">
-					<p>Username : <input type="text" name="username" /></p>
-					<p>Password : <input type="password" name="password" /></p>
-					<input type="submit" name="submit" value="Log in !" />
+					<p><?php echo $username[$lang] ; ?> : <input type="text" name="username" /></p>
+					<p><?php echo $password[$lang] ; ?> : <input type="password" name="password" /></p>
+					<input type="submit" name="submit" value="<?php echo $log_in[$lang] ; ?> !" />
 				</div>
 			</form>
 			<?php
 				}
 				else {
 			?>
-			<div id="caption" class="error"><p>ERROR</p></div>
-			<div id="form"><p class="alert">You've tried too much attemps.</p></form>
+			<div id="caption" class="error"><p><?php echo $error_lang[$lang] ; ?></p></div>
+			<div id="form"><p class="alert"><?php echo $attemps[$lang] ; ?>.</p></form>
 			<?php
 				}
 			?>

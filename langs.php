@@ -8,6 +8,11 @@ $save = array(0 => "Save", 1 => "Sauvegarder");
 $your_changes_has_been_done = array(0 => "Your changes has been done", 1 => "Changements effectu&eacute;s avec succ&egrave;s");
 $return_to_index = array(0 => "Return to index", 1 => "Retourner &agrave; l'accueil");
 
+$welcome = array(0 => "Welcome to Yjing", 1 => "Bienvenue sur Yjing");
+$ready = array(0 => "Your administration panel is ready", 1 => "Votre panneau d'administration est pr&ecirc;t");
+$help = array(0 => "You need some help", 1 => "Vous avez besoin d'aide");
+$twitter = array(0 => "You can read the manual <a href='http://tibounise.github.com/Yjing/manual.html' target='_blank'>here</a>. There's also my Twitter account : @tibounise", 1 => "Vous pouvez lire le manuel <a href='http://tibounise.github.com/Yjing/manual.html' target='_blank'>ici</a>. Ou alors mon compte Twitter : @tibounise");
+
 // Admin
 $administration = array(0 => "Administration", 1 => "Administration");
 $log_out = array(0 => "Log out", 1 => "Se d&eacute;connecter");
@@ -81,5 +86,15 @@ $are_you_sure_that_you_want_to_delete = array(0 => "Are you sure that you want t
 $has_been_deleted = array(0 => "has been deleted", 1 => "a bien &eacute;t&eacute; supprim&eacute;");
 $return_to_the_media_manager = array(0 => "Return to the media manager", 1 => "Revenir au m&eacute;dia manager");
 $delete_it = array(0 => "Delete it", 1 => "Supprimer");
+
+// login.php
+$login = array(0 => "Login", 1 => "Connexion");
+$username = array(0 => "Username", 1 => "Nom de compte");
+$password = array(0 => "Password", 1 => "Mot de passe");
+$log_in = array(0 => "Log in", 1 => "Se connecter");
+$notenough = array(0 => "You didn't have filled enough fields", 1 => "Vous n'avez pas rempli tout les champs");
+$badlogin = array(0 => "Your login is wrong", 1 => "Votre nom de compte/mot de passe est incorrect");
+$error_lang = array(0 => "ERROR", 1 => "ERREUR");
+$attemps = array(0 => "You've tried too much attemps", "Vous avez fait trop de tentatives de connexion");
 
 ?>
