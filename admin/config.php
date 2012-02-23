@@ -38,7 +38,20 @@
 			
 			$page .= "<div class=\"control-group\"><label class=\"control-label\">" . $number_of_attemps[$lang] . " : </label><div class=\"controls\"><input type=\"text\" class=\"span6\" id=\"tent\" value=\"" . html_entity_decode($config_get[5]) . "\" name=\"tent\"></div></div>";
 			
-			$page .= "<div class=\"control-group\"><label class=\"control-label\">" . $language[$lang] . " : </label><div class=\"controls\"><input type=\"text\" class=\"span6\" id=\"lang\" value=\"" . html_entity_decode($config_get[8]) . "\" name=\"lang\"></div></div>";
+			$page .= "<div class=\"control-group\"><label class=\"control-label\">" . $language[$lang] . " : </label><div class=\"controls\"><select name=\"lang\" class=\"span6\">";
+			if ($config_get[8] == "1") {
+				$page .= "<option selected=\"selected\" value=\"1\">" . $french_lang[$lang] . "</option>";
+				$page .= "<option value=\"0\">" . $english_lang[$lang] . "</option>";
+			}
+			elseif ($config_get[8] == "0") {
+				$page .= "<option value=\"1\">" . $french_lang[$lang] . "</option>";
+				$page .= "<option selected=\"selected\" value=\"0\">" . $english_lang[$lang] . "</option>";
+			}
+			else {
+				$page .= "<option value=\"0\">" . $english_lang[$lang] . "</option>";
+				$page .= "<option value=\"1\">" . $french_lang[$lang] . "</option>";
+			}
+			$page .= "</select></div></div>";
 
 			$page .= "<div class=\"control-group\"><div class=\"controls\"><button type=\"submit\" class=\"btn btn-info\">" . $save_changes[$lang] . "</button></div></div>";
 			

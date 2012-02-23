@@ -2,12 +2,12 @@
 <data>
 	<config>
 	<title>Root</title>
-	<sidebar>&amp;lt;li&amp;gt;&amp;lt;a href=\&amp;quot;index.php?article=1\&amp;quot;&amp;gt;Your first article !&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt;</sidebar>
+	<sidebar>&amp;lt;li&amp;gt;&amp;lt;a href=&amp;quot;index.php?article=1&amp;quot;&amp;gt;Your first article !&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt;</sidebar>
 	<theme>twitter_bootstrap</theme>
 		<tent>5</tent>
 		<install>1</install>
 		<list_article>1</list_article>
-		<lang>1</lang>
+		<lang>0</lang>
 	<error404>&amp;lt;h1&amp;gt;Oh oh !&amp;lt;/h1&amp;gt;&#xD;
 &amp;lt;br /&amp;gt;&amp;lt;p&amp;gt;We havn't found the file that you were looking for.&amp;lt;/p&amp;gt;</error404><error403>&amp;lt;h1&amp;gt;Oh oh !&amp;lt;/h1&amp;gt;&#xD;
 &amp;lt;br /&amp;gt;&amp;lt;p&amp;gt;You may not stay here. Private access, and stuff like that ...&amp;lt;/p&amp;gt;</error403></config>

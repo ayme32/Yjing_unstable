@@ -42,6 +42,8 @@ $number_of_attemps = array(0 => "Number of attemps", 1 => "Nombre d'atteintes");
 $language = array(0 => "Language", 1 => "Langue");
 $yes_lang = array(0 => "Yes", 1 => "Oui");
 $no_lang = array(0 => "No", 1 => "Non");
+$french_lang =array(0 => "French", "Fran&ccedil;ais");
+$english_lang = array(0 => "English", 1 => "Anglais");
 
 // edit.php
 $choose_an_article_to_edit = array(0 => "Choose an article to edit", 1 => "Choisissez un article pour le modifier");
