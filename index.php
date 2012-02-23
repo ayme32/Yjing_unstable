@@ -1,7 +1,8 @@
 <?php
 
-include "params.php";
-include "functions.php";
+include ("params.php");
+include ("functions.php");
+include ("langs.php");
 
 $site_infos = getSiteInfos($datafile_url);
 
@@ -13,6 +14,9 @@ include "themes/" . $site_infos[2] . "/theme.php";
 
 if (isset($_GET['article']) AND $_GET['article'] == "list" AND $site_infos[7] == "1") {
 	$page = getListArticles($datafile_url);
+	$page = str_replace("<name_of_the_article>", $name_of_the_article[$lang], $page);
+	$page = str_replace("<date_of_publication>", $date_of_publication[$lang], $page);
+	$page = str_replace("<author>", $author[$lang], $page);
 	echo showPage($site_infos[0],$site_infos[1],stripslashes($page));
 }
 

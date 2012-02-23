@@ -39,7 +39,7 @@ function getSiteInfos($database) {
 
 function getListArticles($database) {
 	$xml = new simpleXMLElement(file_get_contents($database));
-	$page = "<table class=\"table\"><thead><tr><th>Name of the article</th><th>Date of publication</th><th>Author</th></tr></thead><tbody>";
+	$page = "<table class=\"table\"><thead><tr><th><name_of_the_article></th><th><date_of_publication></th><th><author></th></tr></thead><tbody>";
 
 	foreach ($xml->article as $output) {
 		$page .= "<tr>";

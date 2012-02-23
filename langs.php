@@ -1,6 +1,16 @@
 <?php
-$lang_file = getSiteInfos("../" . $datafile_url);
+$url_lang = substr($_SERVER['PHP_SELF'], 0, 7);
+if($url_lang == "/admin/") {
+	$lang_file = getSiteInfos("../" . $datafile_url);
+}
+else {
+	$lang_file = getSiteInfos("./" . $datafile_url);
+}
 $lang = html_entity_decode($lang_file[8]);
+
+// List article
+$name_of_the_article = array(0 => "Name of the article", 1 => "Nom de l'article");
+$date_of_publication = array(0 => "Date of publication", 1 => "Date de publication");
 
 // General
 $save_changes = array(0 => "Save changes", 1 => "Sauvegarder les changements");
@@ -11,7 +21,7 @@ $return_to_index = array(0 => "Return to index", 1 => "Retourner &agrave; l'accu
 $welcome = array(0 => "Welcome to Yjing", 1 => "Bienvenue sur Yjing");
 $ready = array(0 => "Your administration panel is ready", 1 => "Votre panneau d'administration est pr&ecirc;t");
 $help = array(0 => "You need some help", 1 => "Vous avez besoin d'aide");
-$twitter = array(0 => "You can read the manual <a href='http://tibounise.github.com/Yjing/manual.html' target='_blank'>here</a>. There's also my Twitter account : @tibounise", 1 => "Vous pouvez lire le manuel <a href='http://tibounise.github.com/Yjing/manual.html' target='_blank'>ici</a>. Ou alors mon compte Twitter : @tibounise");
+$twitter = array(0 => "You can read the manual <a href='http://tibounise.github.com/Yjing/manual.html' target='_blank'>here</a>. There's also our Twitter account : @Yjing_stable", 1 => "Vous pouvez lire le manuel <a href='http://tibounise.github.com/Yjing/manual.html' target='_blank'>ici</a>. Ou alors notre compte Twitter : @Yjing_dev");
 
 // Admin
 $administration = array(0 => "Administration", 1 => "Administration");
