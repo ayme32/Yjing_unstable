@@ -1,6 +1,6 @@
 <?php
 $lang_file = getSiteInfos("../" . $datafile_url);
-$lang = html_entity_decode($lang_file[7]);
+$lang = html_entity_decode($lang_file[8]);
 
 // General
 $save_changes = array(0 => "Save changes", 1 => "Sauvegarder les changements");
@@ -36,9 +36,12 @@ $name_of_the_site = array(0 => "Name of the site", 1 => "Nom du site");
 $content_of_the_sidebar = array(0 => "Content of the sidebar", 1 => "Contenu de la sidebar");
 $error_404_message = array(0 => "Error 404 message", 1 => "Erreur 404");
 $error_403_message = array(0 => "Error 403 message", 1 => "Erreur 403");
+$list_available = array(0 => "List available", 1 => "Liste des articles");
 $theme_options = array(0 => "Theme options", 1 => "Th&egrave;me");
 $number_of_attemps = array(0 => "Number of attemps", 1 => "Nombre d'atteintes");
 $language = array(0 => "Language", 1 => "Langue");
+$yes_lang = array(0 => "Yes", 1 => "Oui");
+$no_lang = array(0 => "No", 1 => "Non");
 
 // edit.php
 $choose_an_article_to_edit = array(0 => "Choose an article to edit", 1 => "Choisissez un article pour le modifier");

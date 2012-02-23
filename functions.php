@@ -34,7 +34,24 @@ function getSiteInfos($database) {
 
 	$xml = new simpleXMLElement(file_get_contents($database));
 
-	return array(0 => $xml->config->title[0], 1 => $xml->config->sidebar[0], 2 => $xml->config->theme[0], 3 => $xml->config->error404[0], 4 => $xml->config->error403[0], 5 => $xml->config->tent[0], 6 => $xml->config->install[0], 7 => $xml->config->lang[0]);
+	return array(0 => $xml->config->title[0], 1 => $xml->config->sidebar[0], 2 => $xml->config->theme[0], 3 => $xml->config->error404[0], 4 => $xml->config->error403[0], 5 => $xml->config->tent[0], 6 => $xml->config->install[0], 7 => $xml->config->list_article[0], 8 => $xml->config->lang[0]);
+}
+
+function getListArticles($database) {
+	$xml = new simpleXMLElement(file_get_contents($database));
+	$page = "<table class=\"table\"><thead><tr><th>Name of the article</th><th>Date of publication</th><th>Author</th></tr></thead><tbody>";
+
+	foreach ($xml->article as $output) {
+		$page .= "<tr>";
+		$page .= "<td><a href=\"index.php?article=". $output->key ."\">". $output->title ."</a></td>";
+		$page .= "<td>".$output->pubdate."</td>";
+		$page .= "<td>".$output->author."</td>";
+		$page .= "</tr>";
+	}
+
+	$page .= "</tbody></table>";
+
+	return $page;
 }
 
 function openFile($url) {

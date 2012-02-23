@@ -15,6 +15,21 @@
 			$page .= "<div class=\"control-group\"><label class=\"control-label\">" . $error_404_message[$lang] . " : </label><div class=\"controls\"><textarea rows=\"6\" class=\"span6\" id=\"404\" name=\"404\">" . stripslashes(html_entity_decode($config_get[3])) . "</textarea></div></div>";
 			$page .= "<div class=\"control-group\"><label class=\"control-label\">" . $error_403_message[$lang] . " : </label><div class=\"controls\"><textarea rows=\"6\" class=\"span6\" id=\"403\" name=\"403\">" . stripslashes(html_entity_decode($config_get[4])) . "</textarea></div></div>";
 			
+			$page .= "<div class=\"control-group\"><label class=\"control-label\">" . $list_available[$lang] . " : </label><div class=\"controls\"><select name=\"list_article\" class=\"span6\">";
+			if ($config_get[7] == "1") {
+				$page .= "<option selected=\"selected\" value=\"1\">" . $yes_lang[$lang] . "</option>";
+				$page .= "<option value=\"0\">" . $no_lang[$lang] . "</option>";
+			}
+			elseif ($config_get[7] == "0") {
+				$page .= "<option value=\"1\">" . $yes_lang[$lang] . "</option>";
+				$page .= "<option selected=\"selected\" value=\"0\">" . $no_lang[$lang] . "</option>";
+			}
+			else {
+				$page .= "<option value=\"1\">" . $yes_lang[$lang] . "</option>";
+				$page .= "<option value=\"0\">" . $no_lang[$lang] . "</option>";
+			}
+			$page .= "</select></div></div>";
+			
 			$page .= "<div class=\"control-group\"><label class=\"control-label\">" . $theme_options[$lang] . " : </label><div class=\"controls\"><select class=\"span6\" name=\"theme\">";
 
 			$page .= scanDirectory("../themes",$config_get[2]);
@@ -23,7 +38,7 @@
 			
 			$page .= "<div class=\"control-group\"><label class=\"control-label\">" . $number_of_attemps[$lang] . " : </label><div class=\"controls\"><input type=\"text\" class=\"span6\" id=\"tent\" value=\"" . html_entity_decode($config_get[5]) . "\" name=\"tent\"></div></div>";
 			
-			$page .= "<div class=\"control-group\"><label class=\"control-label\">" . $language[$lang] . " : </label><div class=\"controls\"><input type=\"text\" class=\"span6\" id=\"lang\" value=\"" . html_entity_decode($config_get[7]) . "\" name=\"lang\"></div></div>";
+			$page .= "<div class=\"control-group\"><label class=\"control-label\">" . $language[$lang] . " : </label><div class=\"controls\"><input type=\"text\" class=\"span6\" id=\"lang\" value=\"" . html_entity_decode($config_get[8]) . "\" name=\"lang\"></div></div>";
 
 			$page .= "<div class=\"control-group\"><div class=\"controls\"><button type=\"submit\" class=\"btn btn-info\">" . $save_changes[$lang] . "</button></div></div>";
 			
@@ -32,15 +47,14 @@
 		elseif ($_GET['action'] == "edit_config_processing" AND isset($_POST['name'])) {
 			$xml = new simpleXMLElement(file_get_contents("../" . $datafile_url));
 
-			foreach ($xml->config as $output) {
-				$output->title = htmlentities($_POST['name']);
-				$output->error404 = htmlentities($_POST['404']);
-				$output->error403 = htmlentities($_POST['403']);
-				$output->sidebar = htmlentities($_POST['sidebar']);
-				$output->theme = $_POST['theme'];
-				$output->tent = $_POST['tent'];
-				$output->lang = $_POST['lang'];
-			}
+			$xml->config->title = htmlentities($_POST['name']);
+			$xml->config->error404 = htmlentities($_POST['404']);
+			$xml->config->error403 = htmlentities($_POST['403']);
+			$xml->config->sidebar = htmlentities($_POST['sidebar']);
+			$xml->config->tent = $_POST['tent'];
+			$xml->config->theme = $_POST['theme'];
+			$xml->config->lang = $_POST['lang'];
+			$xml->config->list_article = $_POST['list_article'];
 			
 			$buffer = $xml->asXML();
 			unlink("../" . $datafile_url);

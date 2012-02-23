@@ -1,7 +1,7 @@
 <?php
 
 	$datafile_url = "data.xml";
-	$yjing_version = "1.0";
-	$login = array(0 => "ayme32", 1 => "1dd5a24cdff18b5320dd2fdd1d85e0c9");
+	$yjing_version = "1.1 unstable";
+	$login = array(0 => "root", 1 => "63a9f0ea7bb98050796b649e85481845");
 	
 ?>
