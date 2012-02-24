@@ -26,7 +26,7 @@ $twitter = array(0 => "You can read the manual <a href='http://tibounise.github.
 // Admin
 $administration = array(0 => "Administration", 1 => "Administration");
 $log_out = array(0 => "Log out", 1 => "Se d&eacute;connecter");
-$article = array(0 => "Article", 1 => "Article");
+$article_lang = array(0 => "Article", 1 => "Article");
 $new_article = array(0 => "New article", 1 => "Nouvel article");
 $edit_article = array(0 => "Edit article", 1 => "&Eacute;diter un article");
 $delete_article = array(0 => "Delete article", 1 => "Supprimer un article");

@@ -21,6 +21,7 @@
 	elseif (!empty($_POST['username']) AND !empty($_POST['password'])) {
 		if ($_POST['username'] == $login[0] AND md5($_POST['password']) == $login[1]) {
 			$_SESSION['connected'] = true;
+			$_SESSION['token'] = md5(time()*rand(140,320));
 			$_SESSION['try'] = 0;
 			header("Location: index.php");
 		}

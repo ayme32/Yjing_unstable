@@ -63,9 +63,9 @@
 
 			foreach ($xml->article as $output) {
 				$page .= "<tr>";
-				$page .= "<td><a style=\"margin-top: -3px;\" class=\"close\" href=\"edit.php?action=delete_article_confirmation&article=". $output->key ."\">&times;</a></td>";
+				$page .= "<td><a style=\"margin-top: -3px;\" class=\"close\" href=\"edit.php?action=delete_article_confirmation&article=". $output->key ."&token=". $_SESSION['token'] ."\">&times;</a></td>";
 				$page .= "<td>" . $output->key . "</td>";
-				$page .= "<td><a href=\"edit.php?action=delete_article_confirmation&article=". $output->key ."\">" . html_entity_decode($output->title) . "</a></td>";
+				$page .= "<td><a href=\"edit.php?action=delete_article_confirmation&article=". $output->key ."&token=". $_SESSION['token'] ."\">" . html_entity_decode($output->title) . "</a></td>";
 				$page .= "<td>" . $output->pubdate . "</td>";
 				$page .= "<td>" . $output->author . "</td>";
 				$page .= "</tr>";
@@ -76,10 +76,10 @@
 		elseif ($action == "delete_article_confirmation" AND !empty($_GET['article'])) {
 
 			$page = "<h1>" . $are_you_sure_that_you_want_to_delete_it[$lang] . " ?</h1><br />";
-			$page .= "<a class=\"btn btn-danger\" href=\"edit.php?action=delete_article_processing&article=" . $_GET['article'] . "\">" . $continue[$lang] . "</a>&nbsp;";
+			$page .= "<a class=\"btn btn-danger\" href=\"edit.php?action=delete_article_processing&article=" . $_GET['article'] . "&token=" . $_GET['token'] . "\">" . $continue[$lang] . "</a>&nbsp;";
 			$page .= "<a class=\"btn btn-success\" href=\"index.php\">" . $cancel[$lang] . "</a>";
 		}
-		elseif ($action == "delete_article_processing" AND !empty($_GET['article'])) {
+		elseif ($action == "delete_article_processing" AND !empty($_GET['article']) AND $_GET['token'] == $_SESSION['token']) {
 			$xml = new simpleXMLElement(file_get_contents("../" . $datafile_url));
 
 			$i = 0;
@@ -188,9 +188,9 @@
 
 			foreach ($xml->page as $output) {
 				$page .= "<tr>";
-				$page .= "<td><a style=\"margin-top: -3px;\" class=\"close\" href=\"edit.php?action=delete_page_confirmation&page=". $output->key ."\">&times;</a></td>";
+				$page .= "<td><a style=\"margin-top: -3px;\" class=\"close\" href=\"edit.php?action=delete_page_confirmation&page=". $output->key ."&token=". $_SESSION['token'] ."\">&times;</a></td>";
 				$page .= "<td>" . $output->key . "</td>";
-				$page .= "<td><a href=\"edit.php?action=delete_page_confirmation&page=". $output->key ."\">" . stripslashes(strip_tags(substr(html_entity_decode($output->content), 0, 140))) . "[...]</a></td>";
+				$page .= "<td><a href=\"edit.php?action=delete_page_confirmation&page=". $output->key ."&token=". $_SESSION['token'] ."\">" . stripslashes(strip_tags(substr(html_entity_decode($output->content), 0, 140))) . "[...]</a></td>";
 				$page .= "</tr>";
 			}
 
@@ -203,11 +203,11 @@
 			}
 			else {
 				$page = "<h1>" . $are_you_sure_that_you_want_to_delete_it[$lang] . " ?</h1><br />";
-				$page .= "<a class=\"btn btn-danger\" href=\"edit.php?action=delete_page_processing&page=" . $_GET['page'] . "\">" . $continue[$lang] . "</a>&nbsp;";
+				$page .= "<a class=\"btn btn-danger\" href=\"edit.php?action=delete_page_processing&page=" . $_GET['page'] . "&token=" . $_GET['token'] . "\">" . $continue[$lang] . "</a>&nbsp;";
 				$page .= "<a class=\"btn btn-success\" href=\"index.php\">" . $cancel[$lang] . "</a>";
 			}
 		}
-		elseif ($action == "delete_page_processing" AND !empty($_GET['page'])) {
+		elseif ($action == "delete_page_processing" AND !empty($_GET['page']) AND $_GET['token'] == $_SESSION['token']) {
 			$xml = new simpleXMLElement(file_get_contents("../" . $datafile_url));
 
 			$i = 0;
