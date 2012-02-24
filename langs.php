@@ -21,7 +21,7 @@ $return_to_index = array(0 => "Return to index", 1 => "Retourner &agrave; l'accu
 $welcome = array(0 => "Welcome to Yjing", 1 => "Bienvenue sur Yjing");
 $ready = array(0 => "Your administration panel is ready", 1 => "Votre panneau d'administration est pr&ecirc;t");
 $help = array(0 => "You need some help", 1 => "Vous avez besoin d'aide");
-$twitter = array(0 => "You can read the manual <a href='http://tibounise.github.com/Yjing/manual.html' target='_blank'>here</a>. There's also our Twitter account : @Yjing_stable", 1 => "Vous pouvez lire le manuel <a href='http://tibounise.github.com/Yjing/manual.html' target='_blank'>ici</a>. Ou alors notre compte Twitter : @Yjing_dev");
+$twitter = array(0 => "You can read the manual <a href='http://tibounise.github.com/Yjing/manual.html' target='_blank'>here</a>. There's also our Twitter account : @Yjing_dev", 1 => "Vous pouvez lire le manuel <a href='http://tibounise.github.com/Yjing/manual.html' target='_blank'>ici</a>. Ou alors notre compte Twitter : @Yjing_dev");
 
 // Admin
 $administration = array(0 => "Administration", 1 => "Administration");
@@ -39,6 +39,7 @@ $configuration = array(0 => "Configuration", 1 => "Configuration");
 $media_lang = array(0 => "Media", 1 => "M&eacute;dia");
 $manage_medias = array(0 => "Manage medias", 1 => "G&eacute;rer les m&eacute;dias");
 $add_a_new_media = array(0 => "Add a new media", 1 => "Ajouter un m&eacute;dia");
+$update = array(0 => "There's a new update", 1 => "Il y a une nouvelle mise à jour");
 
 // config.php
 $edit_config = array(0 => "Edit config", 1 => "Configuration");
@@ -48,7 +49,7 @@ $error_404_message = array(0 => "Error 404 message", 1 => "Erreur 404");
 $error_403_message = array(0 => "Error 403 message", 1 => "Erreur 403");
 $list_available = array(0 => "List available", 1 => "Liste des articles");
 $theme_options = array(0 => "Theme options", 1 => "Th&egrave;me");
-$number_of_attemps = array(0 => "Number of attemps", 1 => "Nombre d'atteintes");
+$number_of_attemps = array(0 => "Number of fake login attemps", 1 => "Nombre de tentatives de connexion");
 $language = array(0 => "Language", 1 => "Langue");
 $yes_lang = array(0 => "Yes", 1 => "Oui");
 $no_lang = array(0 => "No", 1 => "Non");
