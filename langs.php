@@ -21,7 +21,7 @@ $return_to_index = array(0 => "Return to index", 1 => "Retourner &agrave; l'accu
 $welcome = array(0 => "Welcome to Yjing", 1 => "Bienvenue sur Yjing");
 $ready = array(0 => "Your administration panel is ready", 1 => "Votre panneau d'administration est pr&ecirc;t");
 $help = array(0 => "You need some help", 1 => "Vous avez besoin d'aide");
-$twitter = array(0 => "You can read the manual <a href='http://tibounise.github.com/Yjing/manual.html' target='_blank'>here</a>. There's also our Twitter account : @Yjing_stable", 1 => "Vous pouvez lire le manuel <a href='http://tibounise.github.com/Yjing/manual.html' target='_blank'>ici</a>. Ou alors notre compte Twitter : @Yjing_dev");
+$twitter = array(0 => "You can read the manual <a href='http://tibounise.github.com/Yjing/manual.html' target='_blank'>here</a>. There's also our Twitter account : @Yjing_dev", 1 => "Vous pouvez lire le manuel <a href='http://tibounise.github.com/Yjing/manual.html' target='_blank'>ici</a>. Ou alors notre compte Twitter : @Yjing_dev");
 
 // Admin
 $administration = array(0 => "Administration", 1 => "Administration");
