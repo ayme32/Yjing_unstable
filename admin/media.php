@@ -34,7 +34,7 @@
 				while($file = readdir($buffer_directory)) {
 					if ($file != "." AND $file != ".." AND $file != ".DS_Store") {
 						$page .= "<tr>";
-						$page .= "<td><a style=\"margin-top: -3px;\" class=\"close\" href=\"media.php?action=delete_media&media=". $file ."\">&times;</a></td>";
+						$page .= "<td><a style=\"margin-top: -3px;\" class=\"close\" href=\"media.php?action=delete_media&media=". $file ."&token=". $_SESSION['token'] ."\">&times;</a></td>";
 						$page .= "<td><a href=\"../media/" . $file . "\">" . $file . "</a></td>";
 						$page .= "<td>" . sizeOfFile("../media/" . $file) . "</td>";
 						$page .= "</tr>";
@@ -50,9 +50,9 @@
 		}
 		elseif ($action == "delete_media" AND !empty($_GET['media'])) {
 			$page = "<p>" . $are_you_sure_that_you_want_to_delete[$lang] . " <i><strong>" . $_GET['media'] . "</strong></i> ?</p>";
-			$page .= "<a href=\"media.php?action=delete_media_processing&media=". $_GET['media'] ."\" class=\"btn btn-warning\">" . $delete_it[$lang] . "</a>&nbsp;<a href=\"media.php?action=manage_media\" class=\"btn btn-success\">" . $cancel[$lang] . "</a>";
+			$page .= "<a href=\"media.php?action=delete_media_processing&media=". $_GET['media'] ."&token=". $_GET['token'] ."\" class=\"btn btn-warning\">" . $delete_it[$lang] . "</a>&nbsp;<a href=\"media.php?action=manage_media\" class=\"btn btn-success\">" . $cancel[$lang] . "</a>";
 		}
-		elseif ($action == "delete_media_processing" AND !empty($_GET['media'])) {
+		elseif ($action == "delete_media_processing" AND !empty($_GET['media']) AND $_GET['token'] == $_SESSION['token']) {
 			unlink("../media/".$_GET['media']);
 			$page = "<p><i><strong>" . $_GET['media'] . "</strong></i> " . $has_been_deleted[$lang] . ".</p>";
 			$page .= "<p><a href=\"media.php?action=manage_media\" class=\"btn btn-warning\">" . $return_to_the_media_manager[$lang] . "</a></p>";
