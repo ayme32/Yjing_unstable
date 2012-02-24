@@ -17,7 +17,7 @@
 		elseif ($action == "add_media_processing" AND !empty($_FILES)) {
 			$media = $_FILES['media'];
 			$ext = strtolower(pathinfo($_FILES['media']['name'], PATHINFO_EXTENSION));
-			if (preg_match("#jpg|jpeg|png|mp3|mp4|mpeg|avi|webm|ogg|swf#",$ext)) {
+			if (preg_match("#jpg|jpeg|png|mp3|mp4|mpeg|avi|webm|ogg|swf|pdf|tiff|img|dmg|zip|hex|bin#",$ext)) {
 				move_uploaded_file($media['tmp_name'],"../media/".$media['name']);
 				$page = "<p>" . $your_media_has_been_uploaded[$lang] . " !</p>";
 				$page .= "<p>" . $your_media_is_available_at[$lang] . " : <strong><i>media/" . $media['name'] . "</i></strong>.</p>";

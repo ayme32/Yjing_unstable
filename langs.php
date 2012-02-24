@@ -39,6 +39,7 @@ $configuration = array(0 => "Configuration", 1 => "Configuration");
 $media_lang = array(0 => "Media", 1 => "M&eacute;dia");
 $manage_medias = array(0 => "Manage medias", 1 => "G&eacute;rer les m&eacute;dias");
 $add_a_new_media = array(0 => "Add a new media", 1 => "Ajouter un m&eacute;dia");
+$update = array(0 => "There's a new update", 1 => "Il y a une nouvelle mise à jour");
 
 // config.php
 $edit_config = array(0 => "Edit config", 1 => "Configuration");
@@ -48,7 +49,7 @@ $error_404_message = array(0 => "Error 404 message", 1 => "Erreur 404");
 $error_403_message = array(0 => "Error 403 message", 1 => "Erreur 403");
 $list_available = array(0 => "List available", 1 => "Liste des articles");
 $theme_options = array(0 => "Theme options", 1 => "Th&egrave;me");
-$number_of_attemps = array(0 => "Number of attemps", 1 => "Nombre d'atteintes");
+$number_of_attemps = array(0 => "Number of fake login attemps", 1 => "Nombre de tentatives de connexion");
 $language = array(0 => "Language", 1 => "Langue");
 $yes_lang = array(0 => "Yes", 1 => "Oui");
 $no_lang = array(0 => "No", 1 => "Non");
