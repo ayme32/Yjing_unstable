@@ -9,7 +9,7 @@
 	include("../functions.php");
 	include("../langs.php");
 	
-	if (!empty($_SESSION['connected']) AND isset($_GET['action']) AND $_GET['action'] == "logout") {
+	if (!empty($_SESSION['connected']) AND isset($_GET['action']) AND $_GET['action'] == "logout" AND $_GET['token'] == $_SESSION['token']) {
 		session_destroy();
 		header("Location: index.php");
 	}
