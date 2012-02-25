@@ -3,10 +3,13 @@ $url_lang = substr($_SERVER['PHP_SELF'], 0, 7);
 if($url_lang == "/admin/") {
 	$lang_file = getSiteInfos("../" . $datafile_url);
 }
-else {
+elseif ($url_lang != "/instal") {
 	$lang_file = getSiteInfos("./" . $datafile_url);
 }
-$lang = html_entity_decode($lang_file[8]);
+
+if($url_lang != "/instal") {
+	$lang = html_entity_decode($lang_file[8]);
+}
 
 // List article
 $name_of_the_article = array(0 => "Name of the article", 1 => "Nom de l'article");
@@ -53,7 +56,7 @@ $number_of_attemps = array(0 => "Number of fake login attemps", 1 => "Nombre de 
 $language = array(0 => "Language", 1 => "Langue");
 $yes_lang = array(0 => "Yes", 1 => "Oui");
 $no_lang = array(0 => "No", 1 => "Non");
-$french_lang =array(0 => "French", "Fran&ccedil;ais");
+$french_lang = array(0 => "French", "Fran&ccedil;ais");
 $english_lang = array(0 => "English", 1 => "Anglais");
 
 // edit.php
@@ -112,5 +115,27 @@ $notenough = array(0 => "You didn't have filled enough fields", 1 => "Vous n'ave
 $badlogin = array(0 => "Your login is wrong", 1 => "Votre nom de compte/mot de passe est incorrect");
 $error_lang = array(0 => "ERROR", 1 => "ERREUR");
 $attemps = array(0 => "You've tried too much attemps", 1 => "Vous avez fait trop de tentatives de connexion");
+
+// Install
+$step_lang = array(0 => "Step", 1 => "&Eacute;tape");
+//Step 1
+$setup_time = array(0 => "It's setup time", 1 => "C'est le temps d'installer");
+$first_parag = array(0 => "Thank's for downloading Yjing ! We're proud that you've installed our software.", 1 => "Merci d'avoir t&eacute;l&eacute;charg&eacute; Yjing ! Nous sommes fiers que vous ayez choisit notre CMS.");
+$second_parag = array(0 => "During this installation, you'll be guided by our wizard. It will give you the instructions to help you to install Yjing.", 1 => "Au cours de l'installation, vous serez guid&eacute; par notre logiciel. Il vous donnera les instructions n&eacute;cessaires pour vous aider &agrave; installer Yjing.");
+$third_parag = array(0 => "Choose your language and click \"Step 2\" to continue", 1 => "Choisissez votre langue et cliquez sur \"&Eacute;tape 2\" pour continuer");
+//Step 2
+$give_login = array(0 => "Give us a login", 1 => "Donnez nous un nom d'utilisateur");
+$first_parag_2 = array(0 => "When you will want to create articles or pages, you'll need to log on the back-office. But to protect the back-office, you'll need to set a login.", 1 => "Lorsque vous aurez envie de cr&eacute;er des articles ou des pages, vous en aurez besoin pour vous connecter sur l'administration.");
+$continue = array(0 => "Continue", 1 => "Continuer");
+$alphanumeric = array(0 => "Only alphanumeric characters", 1 => "Caract&egrave;res alphanum&eacute;rique uniquement");
+$too = array(0 => " too", 1 => " aussi");
+//Step 3
+$customize = array(0 => "Let's customize your site", "Maintenant personnalisons votre site");
+$first_parag_3 = array (0 => "We want Yjing to be your website. So it needs to fit you", "Nous voulons que Yjing devienne la plate-forme de votre site. Donc &ccedil;a doit vous correspondre");
+//Step 4
+$ready = array(0 => "Your website is ready to be used", 1 => "Votre site web est pr&ecirc;t &agrave; l'emploi");
+$fast_and_easy = array(0 => "Yeah, that was fast and easy", 1 => "Ouais, c'&eacute;tait rapide et simple");
+$go_website = array(0 => "Go to your website", 1 => "Aller sur votre site");
+$go_admin = array(0 => "Go to the administration panel", 1 => "Aller au panneau d'administration");
 
 ?>
